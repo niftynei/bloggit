@@ -1,0 +1,243 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  font-family: Courier, "Courier New", monospace;
+}
+
+::selection {
+  background: #a8d1ff
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+#entry_block {
+  padding-top: 10%;
+  width: 65%;
+  margin-left: 6%;
+}
+.entry {
+  font-weight: 600;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: Verdana, Geneva, sans-serif;
+  padding: 10px;
+  padding-bottom: 128px;
+}
+.entry div {
+  text-align: right;
+}
+.date {
+  font-size: small;
+  padding-bottom: 12px;
+}
+.small {
+  font-size: x-small;
+}
+.title {
+  font-size: large;
+  line-height: 1.5em;
+}
+.body { 
+  margin-top: 30px;
+  font-weight: 500;
+  line-height: 1.65em;
+}
+
+.tags {
+  padding-top: 32px;
+  font-weight: 400;
+  line-height: 1.2em;
+  font-size: smaller;
+}
+
+.tags .tag {
+  padding-left: 12px;
+  color: #707070;
+}
+
+.permalink {
+  font-weight: 400;
+  color: #505050;
+  padding-top: 12px;
+  font-size: 0.8em;
+}
+
+.more {
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+#deets{
+  width: 29%;
+  text-align: right;
+  position: fixed;;
+  float: right;
+  bottom: 0;
+  right: 0;
+}
+
+.namecap {
+  font-family: Courier, "Courier New", monospace;
+  font-size: 1.75em;
+  line-height: 1.23em;
+  text-align: left;
+  float: right;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.namecap::selection {
+  background: #e34e6c;
+}
+
+.list {
+  padding-right: 30px;
+}
+
+.list li {
+  padding-bottom: 12px;
+}
+
+
+#content {
+  margin: auto;
+  max-width: 966px;
+  height: 100%;
+  position: relative;
+} 
+
+@media all and (max-width: 600px) {
+  .list ul {
+    display: inline; 
+    position: absolute;
+    bottom: 4px;
+    width: 70%
+  }
+  .list li {
+    display: inline;
+  } 
+#deets{
+  width: 100%;
+  text-align: left;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
+}
+#entry_block {
+  padding-top: 10%;
+  width: 88%;
+  margin-left: 6%;
+  margin-right: 6%;
+  padding-bottom: 10%;
+}
+.namecap {
+  text-align: left;
+  padding-right: 12px;
+  padding-bottom: 4px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+<div id="content">
+<div id="deets">
+<div class="list">
+<ul>
+<li><a href="#">a.bout</a></li>
+<li><a href="#">p.rojects</a></li>
+<li><a href="#">r.eading</a></li>
+<li><a href="#">s.earch</a></li>
+<li><a href="#">t.witter</a></li>
+</ul>
+</div>
+<div class="namecap" >
+basic~~~</br>bitch~~~</br>software
+</div>
+
+</div>
+<div id="entry_block">
+<div class="entry">
+<div class="date">10 Jan 2017 <span class="small">c.e</span></div>
+<div class="title">First Post. What happens when this is so incredibly long that it wraps onto the next line. is that evne possible?</div>
+<div class="body">
+Hello.  
+This is a very long post. 
+
+Except not really. I don't have very much to type into here.
+
+Using the flexible grid formula we can take all of the fixed units of length and turn them into relative units. In this example we’ll use percentages but em units would work equally as well. Notice, no matter how wide the parent container becomes, the section and aside margins and widths scale proportionally.
+</div>
+<div class="tags">
+<span class="tag">#tag1</span>
+<span class="tag">#tag2</span>
+<span class="tag">#tag3</span>
+<span class="tag">#tag4</span>
+</div>
+</div>
+
+<div class="entry">
+<div class="date">10 Jan 2017 <span class="small">c.e</span></div>
+<div class="title">First Post. What happens when this is so incredibly long that it wraps onto the next line. is that evne possible?</div>
+<div class="body">
+Hello.  
+This is a very long post. 
+
+Except not really. I don't have very much to type into here.
+
+Using the flexible grid formula we can take all of the fixed units of length and turn them into relative units. In this example we’ll use percentages but em units would work equally as well. Notice, no matter how wide the parent container becomes, the section and aside margins and widths scale proportionally.
+</div>
+<div class="tags">
+<span class="tag">#tag1</span>
+<span class="tag">#tag2</span>
+<span class="tag">#tag3</span>
+<span class="tag">#tag4</span>
+</div>
+<div class="permalink">
+<a href="#">permalink</a>
+</div>
+</div>
+<div class="entry">
+<div class="date">10 Jan 2017 <span class="small">c.e</span></div>
+<div class="title">First Post. What happens when this is so incredibly long that it wraps onto the next line. is that evne possible?</div>
+<div class="body">
+Hello.  
+This is a very long post. 
+
+Except not really. I don't have very much to type into here.
+
+Using the flexible grid formula we can take all of the fixed units of length and turn them into relative units. In this example we’ll use percentages but em units would work equally as well. Notice, no matter how wide the parent container becomes, the section and aside margins and widths scale proportionally.
+</div>
+<div class="tags">
+<span class="tag">#tag1</span>
+<span class="tag">#tag2</span>
+<span class="tag">#tag3</span>
+<span class="tag">#tag4</span>
+</div>
+</div>
+
+<div class="more">
+<a href="#">More...</a>
+</div>
+
+</div>
+</div>
+</body>
+</html>
