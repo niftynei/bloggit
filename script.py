@@ -32,16 +32,26 @@ for draft in drafts:
     map(str.strip, meta_dict['tags'])
     print( meta_dict['tags'] )
 
+  if 'timestamp'not in meta_dict:
+    print( "missing timestamp, skipping draft " + draft)
+    continue
+
+  timestamp = meta_dict['timestamp']
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
-  with open(TMP_OUTPUT+"/tmp", 'w+') as tmp:
+  with open(TMP_OUTPUT+"/"+timestamp, 'w+') as tmp:
     print(content, file=tmp)
 
-  proc = Popen(['perl', 'Markdown/Markdown.pl', '--html4tags', TMP_OUTPUT + '/tmp'], stdout=PIPE)
+  proc = Popen(['perl', 'Markdown/Markdown.pl', '--html4tags', TMP_OUTPUT + '/'+timestamp], stdout=PIPE)
   output = proc.stdout.read().decode(sys.stdout.encoding)
 
+  # TODO: embed in template
   with open(POSTS + '/' + draft.replace('md','html'), 'w+') as out:
     print(output, file=out)
+
+
+# TODO: sort files in tmp chronologically, embed in template
+# print to pages directory
 
 try:
   shutil.rmtree(TMP_OUTPUT)
