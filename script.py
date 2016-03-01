@@ -20,6 +20,18 @@ for draft in drafts:
 
   split_at = data.find(METADATA_DELIM)
   meta = data[0:split_at]
+
+  metasplit = [item.split(':') for item in filter(None, meta.split('\n'))]
+  meta_dict = {}
+  for line in metasplit:
+    if len(line) == 2:
+      meta_dict[line[0]] = line[1].strip()
+
+  if 'tags' in meta_dict:
+    meta_dict['tags'] = meta_dict['tags'].split(',')
+    map(str.strip, meta_dict['tags'])
+    print( meta_dict['tags'] )
+
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
   with open(TMP_OUTPUT+"/tmp", 'w+') as tmp:
