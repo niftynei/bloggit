@@ -2,17 +2,28 @@ import os, sys
 from subprocess import Popen, PIPE
 import shutil
 from subprocess import call
+import pystache
+
+# TODO: a way to print new posts to the basic bitch software twitter account. :)
 
 METADATA_DELIM = '---\n'
 
 DRAFTS = "drafts"
 POSTS = "site/posts"
+PAGES = "site/pages"
 TMP_OUTPUT = "tmp"
+PAGE_SIZE = 8
 
 if not os.path.exists(TMP_OUTPUT):
   os.makedirs(TMP_OUTPUT)
 
 drafts = [ f for f in os.listdir(DRAFTS) if f.endswith(".md")]
+
+entry_set = [] # list of draft dicts
+
+# read in template for entry 
+with open ('templates/entry.mustache', 'r') as mofile:
+  entry_template = mofile.read()
 
 for draft in drafts:
   with open (DRAFTS + '/' + draft, 'r') as draftfile:
@@ -30,20 +41,17 @@ for draft in drafts:
   if 'tags' in meta_dict:
     split_tags = meta_dict['tags'].split(',')
     map(str.strip, split_tags)
+    print( split_tags)
     tags_list = []
     for tag in split_tags:
       tags_list.append({ 'tag': tag}) 
     meta_dict['tags'] = tags_list
-    print( meta_dict['tags'])
 
   if 'timestamp'not in meta_dict:
     print( "missing timestamp, skipping draft " + draft)
     continue
 
-  if 'date' in meta_dict:
-    date = meta_dict['date']
-    print( date )
-
+  meta_dict['filename'] = draft
   timestamp = meta_dict['timestamp']
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
@@ -55,13 +63,31 @@ for draft in drafts:
 
   meta_dict['entry_body'] = marked_down_content
 
-  with open(POSTS + '/' + draft.replace('md','html'), 'w+') as out:
-    print(marked_down_content, file=out)
+  # add processed entry to the entry set
+  entry_set.append(meta_dict)
 
-  # TODO: embed in template & print to posts file.
+# sort the entries by timestamp
+sorted_entries = sorted(entry_set, key=lambda k: k['timestamp'], reverse=True)
 
-# TODO: sort files in tmp chronologically, embed in template
-# print to pages directory
+page_number = 0
+page = '' # concatenated string of pages
+for index, entry in enumerate(sorted_entries):
+  if (index + 1 % PAGE_SIZE) is 0: #start a new page
+    page_number++
+    page = ''
+  
+  rendered_entry = pystache.render(entry_template, entry)
+  page += rendered_entry
+
+  # TODO: embed each post in a template with next & previous links
+  with open(POSTS + '/' + entry['filename'].replace('.md', '.html'), 'w+') as out:
+    print(rendered_entry, file=out)
+
+  # todo: make a list of pages that can be printed out in a different loop
+  # TODO: more link (for front page)
+  # really gross. re-prints out for every entry. oh well.
+  with open(PAGES+ '/page_' page_number + '.html', 'w+') as out:
+    print(page, file=out)
 
 try:
   shutil.rmtree(TMP_OUTPUT)
