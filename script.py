@@ -28,13 +28,21 @@ for draft in drafts:
       meta_dict[line[0]] = line[1].strip()
 
   if 'tags' in meta_dict:
-    meta_dict['tags'] = meta_dict['tags'].split(',')
-    map(str.strip, meta_dict['tags'])
-    print( meta_dict['tags'] )
+    split_tags = meta_dict['tags'].split(',')
+    map(str.strip, split_tags)
+    tags_list = []
+    for tag in split_tags:
+      tags_list.append({ 'tag': tag}) 
+    meta_dict['tags'] = tags_list
+    print( meta_dict['tags'])
 
   if 'timestamp'not in meta_dict:
     print( "missing timestamp, skipping draft " + draft)
     continue
+
+  if 'date' in meta_dict:
+    date = meta_dict['date']
+    print( date )
 
   timestamp = meta_dict['timestamp']
   content = data[split_at+len(METADATA_DELIM):len(data)]
@@ -43,12 +51,14 @@ for draft in drafts:
     print(content, file=tmp)
 
   proc = Popen(['perl', 'Markdown/Markdown.pl', '--html4tags', TMP_OUTPUT + '/'+timestamp], stdout=PIPE)
-  output = proc.stdout.read().decode(sys.stdout.encoding)
+  marked_down_content = proc.stdout.read().decode(sys.stdout.encoding)
 
-  # TODO: embed in template
+  meta_dict['entry_body'] = marked_down_content
+
   with open(POSTS + '/' + draft.replace('md','html'), 'w+') as out:
-    print(output, file=out)
+    print(marked_down_content, file=out)
 
+  # TODO: embed in template & print to posts file.
 
 # TODO: sort files in tmp chronologically, embed in template
 # print to pages directory

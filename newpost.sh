@@ -7,7 +7,7 @@ DATE=`date -r $TIME "+%Y-%m-%d"`
 TITLE=$1
 OK_TITLE=`echo "$TITLE" | tr " " -`
 
-echo -e "timestamp: $TIME\nDATE: `date -r $TIME`\ntitle: $TITLE\ntags: \n\n---\n" > drafts/$DATE-$OK_TITLE.md
+echo -e "timestamp: $TIME\ndate: `date -r $TIME "+%-d %h %Y"`\ntitle: $TITLE\ntags: \n\n---\n" > drafts/$DATE-$OK_TITLE.md
 echo "file created: $DATE-$OK_TITLE.md"
 
 vim + drafts/$DATE-$OK_TITLE.md
