@@ -174,15 +174,17 @@ basic~~~</br>bitch~~~</br>software
 
 </div>
 <div id="entry_block">
-{{ #entries }}
 {{{ rendered_entry }}}
-{{ /entries}}
 </div>
 
 <div class="more">
-<a href="{{more_link}}">More...</a>
+{{#prev}}
+<a href="{{prev}}">Previous</a>  
+{{/prev}}
+{{#next}}
+<a href="{{next}}">Next</a>
+{{/next}}
 </div>
-
 </div>
 </div>
 </body>

@@ -3,6 +3,7 @@ from subprocess import Popen, PIPE
 import shutil
 from subprocess import call
 import pystache
+import json
 
 # TODO: a way to print new posts to the basic bitch software twitter account. :)
 
@@ -11,8 +12,19 @@ METADATA_DELIM = '---\n'
 DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
+HOME  = "site/home.html"
 TMP_OUTPUT = "tmp"
 PAGE_SIZE = 8
+
+def chunk(entries, chunk_size):
+  out = []
+  last = 0
+  
+  while last < len(entries):
+    out.append(entries[last:(last + chunk_size)])
+    last += chunk_size
+
+  return out
 
 if not os.path.exists(TMP_OUTPUT):
   os.makedirs(TMP_OUTPUT)
@@ -24,6 +36,8 @@ entry_set = [] # list of draft dicts
 # read in template for entry 
 with open ('templates/entry.mustache', 'r') as mofile:
   entry_template = mofile.read()
+
+# read in template for home page
 
 for draft in drafts:
   with open (DRAFTS + '/' + draft, 'r') as draftfile:
@@ -51,7 +65,9 @@ for draft in drafts:
     print( "missing timestamp, skipping draft " + draft)
     continue
 
-  meta_dict['filename'] = draft
+  meta_dict['filename'] = draft.replace('md','html')
+  # TODO: add domain name to this?
+  meta_dict['link'] = POSTS + '/' + meta_dict['filename']
   timestamp = meta_dict['timestamp']
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
@@ -69,27 +85,55 @@ for draft in drafts:
 # sort the entries by timestamp
 sorted_entries = sorted(entry_set, key=lambda k: k['timestamp'], reverse=True)
 
-page_number = 0
-page = '' # concatenated string of pages
+# read in template for posts
+with open ('templates/post.mustache', 'r') as mofile:
+  post_template = mofile.read()
 for index, entry in enumerate(sorted_entries):
-  if (index + 1 % PAGE_SIZE) is 0: #start a new page
-    page_number++
-    page = ''
   
+  if index != 0: # if not the first item, add a prev link
+    entry['prev'] = sorted_entries[index - 1]['filename']
+
+  if index + 1 < len(sorted_entries):
+    entry['next'] = sorted_entries[index + 1]['filename']
+
   rendered_entry = pystache.render(entry_template, entry)
-  page += rendered_entry
+  entry['rendered_entry'] = rendered_entry
 
-  # TODO: embed each post in a template with next & previous links
-  with open(POSTS + '/' + entry['filename'].replace('.md', '.html'), 'w+') as out:
-    print(rendered_entry, file=out)
+  entry['escaped_entry'] = json.dumps(rendered_entry)
 
-  # todo: make a list of pages that can be printed out in a different loop
-  # TODO: more link (for front page)
-  # really gross. re-prints out for every entry. oh well.
-  with open(PAGES+ '/page_' page_number + '.html', 'w+') as out:
-    print(page, file=out)
+  # TODO: put a permalink on each post
+  post = pystache.render(post_template, entry)
+  with open(POSTS + '/' + entry['filename'], 'w+') as out:
+    print(post, file=out)
+
+paged_entries = chunk(sorted_entries, PAGE_SIZE)
+
+# read in template for pages
+with open ('templates/page.mustache', 'r') as mofile:
+  page_template = mofile.read()
+for index, page in enumerate(paged_entries):
+  
+  page_dict = { 'entries': page }
+  # add a "more" link if there's a page after this one
+  if (index + 1 < len(paged_entries)):
+    page_dict['more_link'] = 'pages/page_' + str(index + 1) + '.json' 
+
+  if (index == 0):
+    # read in template for home page
+    with open ('templates/home.mustache', 'r') as mofile:
+      home_template = mofile.read()
+    rendered_home = pystache.render(home_template, page_dict)
+    with open(HOME, 'w+') as out:
+      print(rendered_home, file=out)
+
+  rendered_page = pystache.render(page_template, page_dict)
+  with open(PAGES + '/page_' + str(index) + '.json', 'w+') as out:
+    print(rendered_page, file=out)
+  
 
 try:
   shutil.rmtree(TMP_OUTPUT)
 except OSError:
   pass
+
+
