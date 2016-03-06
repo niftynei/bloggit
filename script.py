@@ -9,6 +9,7 @@ import json
 
 METADATA_DELIM = '---\n'
 
+BASE_URL = "//0.0.0.0:8080"
 DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
@@ -68,8 +69,8 @@ for draft in drafts:
     continue
 
   meta_dict['filename'] = draft.replace('md','html')
-  # TODO: add domain name to this?
   meta_dict['link'] = POSTS + '/' + meta_dict['filename']
+  meta_dict['permalink'] = BASE_URL + '/posts/' + meta_dict['filename']
   timestamp = meta_dict['timestamp']
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
@@ -103,7 +104,6 @@ for index, entry in enumerate(sorted_entries):
 
   entry['escaped_entry'] = json.dumps(rendered_entry)
 
-  # TODO: put a permalink on each post
   post = pystache.render(post_template, entry)
   with open(POSTS + '/' + entry['filename'], 'w+') as out:
     print(post, file=out)
