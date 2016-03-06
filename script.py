@@ -56,7 +56,6 @@ for draft in drafts:
   if 'tags' in meta_dict:
     split_tags = meta_dict['tags'].split(',')
     split_tags = [str.strip(x) for x in split_tags]
-    print( split_tags)
     tags_list = []
     for tag in split_tags:
       if (len(tag) == 0):
