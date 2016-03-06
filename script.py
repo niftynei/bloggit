@@ -13,7 +13,7 @@ BASE_URL = "//0.0.0.0:8080"
 DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
-HOME  = "site/home.html"
+HOME  = "site/index.html"
 TMP_OUTPUT = "tmp"
 PAGE_SIZE = 8
 
