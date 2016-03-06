@@ -113,6 +113,9 @@ with open ('templates/page.mustache', 'r') as mofile:
   page_template = mofile.read()
 for index, page in enumerate(paged_entries):
   
+  # add a 'last' marker to the last entry in a page, so that we don't print a comma
+  page[len(page) - 1]['last'] = True
+
   page_dict = { 'entries': page }
   # add a "more" link if there's a page after this one
   if (index + 1 < len(paged_entries)):

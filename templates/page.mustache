@@ -1,6 +1,6 @@
 {
-  "entries": [ 
-    {{ #entries }} {{{ escaped_entry }}}, 
+  "entries": [
+    {{ #entries }}{{{ escaped_entry }}}{{^last}}, {{/last}}
     {{ /entries}}
   ] {{ #more_link }},
   "more_link": "{{more_link}}"{{ /more_link }}
