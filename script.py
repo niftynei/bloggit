@@ -47,7 +47,7 @@ for draft in drafts:
   split_at = data.find(METADATA_DELIM)
   meta = data[0:split_at]
 
-  metasplit = [item.split(':') for item in filter(None, meta.split('\n'))]
+  metasplit = [item.split(':', 1) for item in filter(None, meta.split('\n'))]
   meta_dict = {}
   for line in metasplit:
     if len(line) == 2:
@@ -66,6 +66,9 @@ for draft in drafts:
   if 'timestamp'not in meta_dict:
     print( "missing timestamp, skipping draft " + draft)
     continue
+
+  if 'time' in meta_dict:
+    print("The time is " + meta_dict['time'])
 
   meta_dict['filename'] = draft.replace('md','html')
   meta_dict['link'] = POSTS + '/' + meta_dict['filename']
