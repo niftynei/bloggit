@@ -9,7 +9,7 @@ import json
 
 METADATA_DELIM = '---\n'
 
-BASE_URL = "//0.0.0.0:8080"
+BASE_URL = "//basicbitch.software"
 DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
