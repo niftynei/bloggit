@@ -64,7 +64,8 @@ div.body, div.title {
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-  margin-bottom: 0.7em;
+  margin-bottom: .85em;
+  margin-top: .85em;
 }
 
 .body h1, .body h2, .body h3, .body h4 {
