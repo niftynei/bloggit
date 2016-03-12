@@ -2,10 +2,10 @@ timestamp: 1457314805
 date: 6 Mar 2016
 time: 20:40
 title: A Case for Extravagance
-tags: software, life experiments
+tags: software, life-experiments
 
 ---
-tl;dr: Learning the art of extravagance has made me better at my job (programmer) in delightful & surprising ways.
+## tl;dr: Learning the art of extravagance has made me better at my job (programmer) in delightful & surprising ways.
 
 It's rare to hear software developers talk about how indulgent the system that they work on is. Conversations about optimization and efficiency, and reducing 'technical debt' -- take a glance at any recent software conference topics and I guarantee you'll find at least one talk covering these topics. Common discourse in software has a lot to say about how systems should be built, how to make them run faster, how to write better tests, etc.  Talking about building 'extravagant' systems, or systems that are pleasant to use, although often the subtext, is rarely addressed outright.
 
