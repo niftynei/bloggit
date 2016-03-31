@@ -29,7 +29,7 @@ a {
   //font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
   //font-family: Verdana, Geneva, sans-serif;
   padding: 10px;
-  padding-bottom: 128px;
+  padding-bottom: 8em;
 }
 .entry div {
   text-align: right;
@@ -139,7 +139,8 @@ div.body, div.title {
 
 .more {
   text-align: center;
-  padding-bottom: 32px;
+  padding-bottom: 6em;
+  margin-top: -6em;
 }
 
 #deets{
