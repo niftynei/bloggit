@@ -31,7 +31,7 @@ In fact, one could argue that copy-pasting, if done mindfully, actually is desig
 ### Do Repeat Yourself
 So what does copy-pasting and Stitch Fix's data team have in common?  Both are case studies against the century old adage of "work efficiency", or the need to drive out 'repetition' from a process or system.  As I've highlighted above, there are times where efficiency for the sake of efficiency obscures larger goals; in the case of code it's the flexibility to change and try out new things without introducing a burden of rearchitecture and coupling.  In the case of human work, it's structuring your team to provide the most autonomy and agency for everyone.
 
-I've said it before, but it bears repeating: there are cases where redundancy and repetition provide a greater benefit to the system than the sacrifices required to eliminate it.[4]  May we all be wise enough to recognize them.
+I've said it before, but it bears repeating: there are cases where redundancy and repetition provide a greater benefit to the system than the sacrifices required to eliminate it.[4]  May we all be wise enough to recognize them.[5]
 
 
 [1] [http://multithreaded.stitchfix.com/blog/2016/03/16/engineers-shouldnt-write-etl/](http://multithreaded.stitchfix.com/blog/2016/03/16/engineers-shouldnt-write-etl/)
@@ -41,3 +41,5 @@ I've said it before, but it bears repeating: there are cases where redundancy an
 [3] There is a flaw with this. True as it is that the code you're writing *will* all be thrown away at some point in the not so distant future, the trouble is that you have no way of knowing what parts of it or when.  It takes some careful crafting to build things that are flexible enough to withstand last minute design changes, but robust enough to be easily refactored.
 
 [4]  This idea of living with repetition because of other, less quantifiable benefits has been explored in other places outside of software, ie in Jane Jacobs' books on city economy, she theorizes about how having a proliferation of small, competing businesses in cities is directly related to the continuing robustness of a city's economy.
+
+[5] Thanks to Sophie Haskins for her feedback on this post.
