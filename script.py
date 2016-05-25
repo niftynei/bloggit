@@ -1,7 +1,8 @@
 import os, sys
 from subprocess import Popen, PIPE, call
+from datetime import datetime
+from email import utils
 import shutil
-import datetime
 import pystache
 import json
 
@@ -11,10 +12,11 @@ METADATA_DELIM = '---\n'
 
 BASE_URL = "//basicbitch.software"
 BLOG_LINK = "http:" + BASE_URL
+RSS_LINK = BLOG_LINK + "/feed.xml"
 BLOG_TITLE = "Basic Bitch Software"
 BLOG_DESC = "software basics, for basic bitches"
-COPYRIGHT = "(&#x254;) Lisa Neigut " + str(datetime.datetime.now().year)
-CONTACT_EMAIL = "lisa.neigut@gmail.com"
+COPYRIGHT = "(&#x254;) Lisa Neigut " + str(datetime.now().year)
+CONTACT_EMAIL = "lisa.neigut@gmail.com (Lisa Neigut)"
 DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
@@ -34,6 +36,10 @@ def chunk(entries, chunk_size):
 
   return out
 
+def formatDate(timestamp):
+  return utils.formatdate(int(timestamp), localtime=True)
+  
+
 if not os.path.exists(TMP_OUTPUT):
   os.makedirs(TMP_OUTPUT)
 
@@ -46,7 +52,6 @@ with open ('templates/entry.mustache', 'r') as mofile:
   entry_template = mofile.read()
 
 # read in template for home page
-
 for draft in drafts:
   with open (DRAFTS + '/' + draft, 'r') as draftfile:
     data = draftfile.read()
@@ -82,7 +87,7 @@ for draft in drafts:
   meta_dict['permalink'] = BASE_URL + '/posts/' + meta_dict['filename']
   timestamp = meta_dict['timestamp']
   # add a publish date for RSS feed
-  meta_dict['publishDate'] = datetime.datetime.fromtimestamp(int(timestamp)).strftime("%a, %d %B %Y %I:%M%p")
+  meta_dict['publishDate'] = formatDate(timestamp)
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
   with open(TMP_OUTPUT+"/"+timestamp, 'w+') as tmp:
@@ -154,7 +159,8 @@ rss_dict['blogtitle'] = BLOG_TITLE
 rss_dict['bloglink'] = BLOG_LINK 
 rss_dict['description'] = BLOG_DESC
 rss_dict['copyright'] = COPYRIGHT
-rss_dict['buildDate'] = datetime.datetime.now().strftime("%a, %d %B %Y %I:%M%p")
+rss_dict['rssLink'] = RSS_LINK
+rss_dict['buildDate'] = formatDate(datetime.now().timestamp())
 rss_dict['contactEmail'] = CONTACT_EMAIL
 with open ('templates/rss.mustache', 'r') as mofile:
   rss_template = mofile.read()
