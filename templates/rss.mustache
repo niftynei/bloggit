@@ -1,0 +1,22 @@
+<rss version="2.0">
+<channel>
+<title>{{blogtitle}}</title>
+<link>{{bloglink}}</link>
+<description>{{description}}</description>
+<language>en-us</language>
+<copyright>{{&copyright}}</copyright>
+<lastBuildDate>{{buildDate}}</lastBuildDate>
+<managingEditor>{{contactEmail}}</managingEditor>
+<webMaster>{{contactEmail}}</webMaster>
+<ttl>60</ttl>
+{{ #posts }}
+<item>
+<title>{{title}}</title>
+<description>{{title}}</description>
+<pubDate>{{publishDate}}</pubDate>
+<guid isPermaLink="true">http:{{permalink}}</guid>
+<link>http:{{permalink}}</link>
+</item>
+{{ /posts }}
+</channel>
+</rss>

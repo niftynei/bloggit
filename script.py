@@ -1,7 +1,7 @@
 import os, sys
-from subprocess import Popen, PIPE
+from subprocess import Popen, PIPE, call
 import shutil
-from subprocess import call
+import datetime
 import pystache
 import json
 
@@ -10,10 +10,17 @@ import json
 METADATA_DELIM = '---\n'
 
 BASE_URL = "//basicbitch.software"
+BLOG_LINK = "http:" + BASE_URL
+BLOG_TITLE = "Basic Bitch Software"
+BLOG_DESC = "software basics, for basic bitches"
+COPYRIGHT = "(&#x254;) Lisa Neigut " + str(datetime.datetime.now().year)
+CONTACT_EMAIL = "lisa.neigut@gmail.com"
 DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
 HOME  = "site/index.html"
+RSS_FEED = "site/feed"
+RSS_FEED_SIZE = 20
 TMP_OUTPUT = "tmp"
 PAGE_SIZE = 8
 
@@ -74,6 +81,8 @@ for draft in drafts:
   meta_dict['link'] = POSTS + '/' + meta_dict['filename']
   meta_dict['permalink'] = BASE_URL + '/posts/' + meta_dict['filename']
   timestamp = meta_dict['timestamp']
+  # add a publish date for RSS feed
+  meta_dict['publishDate'] = datetime.datetime.fromtimestamp(int(timestamp)).strftime("%a, %d %B %Y %I:%M%p")
   content = data[split_at+len(METADATA_DELIM):len(data)]
 
   with open(TMP_OUTPUT+"/"+timestamp, 'w+') as tmp:
@@ -112,7 +121,7 @@ for index, entry in enumerate(sorted_entries):
 
 paged_entries = chunk(sorted_entries, PAGE_SIZE)
 
-# read in template for pages
+# read in template for pages (for home page pagination)
 with open ('templates/page.mustache', 'r') as mofile:
   page_template = mofile.read()
 for index, page in enumerate(paged_entries):
@@ -138,9 +147,23 @@ for index, page in enumerate(paged_entries):
     print(rendered_page, file=out)
   
 
+# RSS feed page 
+rss_dict = {}
+rss_dict['posts'] = sorted_entries[:RSS_FEED_SIZE]
+rss_dict['blogtitle'] = BLOG_TITLE
+rss_dict['bloglink'] = BLOG_LINK 
+rss_dict['description'] = BLOG_DESC
+rss_dict['copyright'] = COPYRIGHT
+rss_dict['buildDate'] = datetime.datetime.now().strftime("%a, %d %B %Y %I:%M%p")
+rss_dict['contactEmail'] = CONTACT_EMAIL
+with open ('templates/rss.mustache', 'r') as mofile:
+  rss_template = mofile.read()
+  rendered_page = pystache.render(rss_template, rss_dict)
+with open(RSS_FEED, 'w+') as out:
+  print(rendered_page, file=out)
+
 try:
   shutil.rmtree(TMP_OUTPUT)
 except OSError:
   pass
-
 
