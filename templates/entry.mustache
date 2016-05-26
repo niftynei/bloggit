@@ -1,6 +1,6 @@
 <div class="entry">
 <div class="date">{{date}} <span class="small">c.e.</span></div>
-<div class="time">{{time}}</div>
+<div class="time"><a href="{{permalink}}" target="_self">{{time}}</a></div>
 <div class="title">{{title}}</div>
 <div class="body">
 {{{entry_body}}}
@@ -12,6 +12,6 @@
 </div>
 {{#permalink}}
 <div class="permalink">
-  <a href="{{permalink}}">permalink</a></div>
+  <a href="{{permalink}}" target="_self">permalink</a></div>
 {{/permalink}}
 </div>

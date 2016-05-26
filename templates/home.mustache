@@ -1,5 +1,6 @@
 <html>
 <head>
+<base target="_blank">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
 <title>basic bitch software~</title>
@@ -21,16 +22,25 @@
 <div id="deets">
 <div class="list">
 <ul>
-<li><a href="/static/about.html">a.bout</a></li>
-<!--<li><a href="#">p.rojects</a></li>-->
+<li><a href="/static/about.html" target="_self">a.bout</a></li>
+<!--<li><a href="#" target="_self">p.rojects</a></li>-->
 <li><a href="https://www.reading.am/niftynei" target="_blank">r.eading</a></li>
-<!--<li><a href="#">s.earch</a></li>-->
+<!--<li><a href="#" target="_self">s.earch</a></li>-->
 <li><a href="https://www.twitter.com/niftynei" target="_blank">t.witter</a></li>
 <li><a href="https://www.goodreads.com/user/show/3987541-niftynei" target="_blank">g.oodreads</a></li>
+<style scoped>
+@media (max-width: 600px) {
+  .rc-scout {
+    float: none !important;
+    display: inline-block !important;
+  }
+}
+</style>
+<li><div class="rc-scout" style="height:1.2em;width:1.2em;float:right;"></div></li>
 </ul>
 </div>
 <div class="namecap" >
-<a href="#">basic~~~</br>bitch~~~</br>software</a>
+<a href="#" target="_self">basic~~~</br>bitch~~~</br>software</a>
 </div>
 
 </div>
@@ -42,12 +52,14 @@
 
 {{#more_link}}
 <div class="more">
-<a href="{{more_link}}" id="more_link">More...</a>
+<a href="{{more_link}}" id="more_link" target="_self">More...</a>
 {{/more_link}}
 </div>
 
 </div>
 </div>
+<!-- load up RC's scout O-O -->
+<script async defer src="https://www.recurse-scout.com/loader.js?t=c556bd786904649ea3096a3039c77291"></script>
 </body>
 
 <script type="text/javascript">
