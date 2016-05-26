@@ -1,5 +1,6 @@
 <html>
 <head>
+<base target="_blank">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
 <title>basic bitch software~</title>
@@ -21,16 +22,25 @@
 <div id="deets">
 <div class="list">
 <ul>
-<li><a href="#">a.bout</a></li>
-<!--<li><a href="#">p.rojects</a></li>-->
+<li><a href="#" target="_self">a.bout</a></li>
+<!--<li><a href="#" target="_self">p.rojects</a></li>-->
 <li><a href="https://www.reading.am/niftynei" target="_blank">r.eading</a></li>
-<!--<li><a href="#">s.earch</a></li>-->
+<!--<li><a href="#" target="_self">s.earch</a></li>-->
 <li><a href="https://www.twitter.com/niftynei" target="_blank">t.witter</a></li>
 <li><a href="https://www.goodreads.com/user/show/3987541-niftynei" target="_blank">g.oodreads</a></li>
+<style scoped>
+@media (max-width: 600px) {
+  .rc-scout {
+    float: none !important;
+    display: inline-block !important;
+  }
+}
+</style>
+<li><div class="rc-scout" style="height:1.2em;width:1.2em;float:right;"></div></li>
 </ul>
 </div>
 <div class="namecap" >
-<a href="/">basic~~~</br>bitch~~~</br>software</a>
+<a href="/" target="_self">basic~~~</br>bitch~~~</br>software</a>
 </div>
 </div>
 <div id="entry_block">
@@ -52,7 +62,8 @@
 </div>
 
 </div>
-</body>
+<!-- load up RC's scout O-O -->
+<script async defer src="https://www.recurse-scout.com/loader.js?t=c556bd786904649ea3096a3039c77291"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -63,4 +74,5 @@ ga('create', 'UA-74757851-1', 'auto');
 ga('send', 'pageview');
 
 </script>
+</body>
 </html>
