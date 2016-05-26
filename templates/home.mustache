@@ -110,13 +110,15 @@ function loadMore(url) {
 
 window.onload = function() {
   var moreLink = document.getElementById("more_link");
-  moreLink.onclick = function() {
-    console.log("button clicked!!");
-    // TODO: show a spinner instead of just making the link disappear
-    moreLink.style.visibility = "hidden";
-    loadMore(moreLink.href); 
-    return false; 
-  };
+  if (moreLink) {
+    moreLink.onclick = function() {
+      console.log("button clicked!!");
+      // TODO: show a spinner instead of just making the link disappear
+      moreLink.style.visibility = "hidden";
+      loadMore(moreLink.href); 
+      return false; 
+    };
+  }
 }
 </script>
 <script>
