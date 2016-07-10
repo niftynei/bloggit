@@ -8,13 +8,13 @@ tags:
 
 ## tl;dr Bugs are powerful indicators of where your knowledge gaps are.
 
-I work at the [Recurse Center](https://www.recurse.com) (henceforth RC) as a Facilitator.  As a facilitator I help people pick projects, organize and run interview prep, keep things in the space moving smoothly, and serv as a semi-permanent, always available pairing or debugging partner.
+I work at the [Recurse Center](https://www.recurse.com) (henceforth RC) as a Facilitator.  As a facilitator I help people pick projects, organize and run interview prep, keep things in the space moving smoothly, and serve as a semi-permanent, always available pairing or debugging partner.
 
  In this capacity I've had the opportunity to help more than a few people with their bugs, and am pretty familiar with the routine of winding your way down through both the problem space and the source code, in an attempt to figure out what's going on.  
 
  As an active software developer, I also encounter my own bugs or problems from time to time.  In solving these problems, I learn things, most of which could be succinctly summed up as "How my idea of the world is not what actually exists".
 
- This past weekend, I had the pleasure to ride along on a meet & greet with a prospective resident for RC (Let's call her Jane).  Jane had been the CTO at a financial trading firm in NYC and taught classes sometimes at NYU.  Her advice for RC was that we should build out a common environment, as her financial firm had done, that was built on top of a linux distribution and could be downloaded and easy to set up for any person in RC.  They'd be able to develop their software in it and then easily push it out to a variety of places.  Her rationale behind this was that a skill her firm looked for in developers was their ability to deploy. By providing pre-made packages for Recurses, we would help them learn the entire deployment stack, as opposed to how we do help people deploy things currently, which is pushing things out to Heroku.
+ This past weekend, I had the pleasure to ride along on a meet & greet with a prospective resident for RC (let's call her Jane).  Jane had been the CTO at a financial trading firm in NYC and taught classes sometimes at NYU.  Her advice for RC was that we should build out a common environment, as her financial firm had done, that was built on top of a linux distribution and could be downloaded and easy to set up for any person in RC.  They'd be able to develop their software in it and then easily push it out to a variety of places.  Her rationale behind this was that a skill her firm looked for in developers was their ability to deploy. By providing pre-made packages for Recursers, we would help them learn the entire deployment stack, as opposed to how we do help people deploy things currently, which is pushing things out to Heroku.
 
  First,  I have to say that I was opposed to this idea mostly because of the amount of work it would add to my list of responsibilities.  Keeping a linux package up to date for anyone to download is work, and I'd rather not do any more work than I have to. 
 
@@ -26,12 +26,12 @@ I work at the [Recurse Center](https://www.recurse.com) (henceforth RC) as a Fac
 
  This is a key point of the power of knowledge -- knowing how things work enables you to change and modify them as you see fit.  Bugs are a gateway to that knowledge, and removing bugs and problems from people's path is really taking away a great learning opportunity.  Which as a facilitator, runs counter to my job.
 
-So the next time you can't get a package to install, instead of getting frustrated, think of all the marvelous things you're learning! Either about how computers work, or the architecture decisions of the package maintainer, or maybe even the politics that went into what-ever it is that is causing you grief at the moment.
+So the next time you can't get a package to install, instead of getting frustrated, think of all the marvelous things you're learning! Either about how computers work, or the architecture decisions of the package maintainer, or maybe even the politics that went into whatever it is that is causing you grief at the moment.
 
 Maybe it's not the most marvelous thing to waste your time with, but the silver lining's not so bad.
 
  [1] To a large extent, I am ignoring the other, larger problem that the nature of the Recurse Center presents: that Recursers work on a variety of diverse projects, and the requirements for what a 'common' machine would need in order to be useful to even half of the participants at any given time is daunting, both from a maintenance perspective and a requirements gathering project.
 
- [2] A PATH variable is a Unix-shell[2.a] construct that allows you to run programs from any directory, irregardless of where that actual program lives on your computer.  This is like being able to start the Chrome app while you're digging thru the Trash Bin.
+ [2] A PATH variable is a Unix-shell[2.a] construct that allows you to run programs from any directory, regardless of where that actual program lives on your computer.  This is like being able to start the Chrome app while you're digging thru the Trash Bin.
 
  [2.a] If you are a Mac user, your Unix-shell is Terminal.
