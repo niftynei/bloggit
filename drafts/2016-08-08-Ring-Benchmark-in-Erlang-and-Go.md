@@ -5,7 +5,6 @@ title: Ring Benchmark in Erlang and Go
 tags: erlang, go, benchmark, concurrency
 
 ---
-
 ### tl;dr In a head to head test, Go is a better language for writing concurrent code than Erlang
 
 ## Problem Statement
@@ -17,6 +16,7 @@ I'm currently working my way through Joe Armstrong's Programming Erlang.[1]  One
 >Write a similar program in some other programming language you are familiar with. Compare the results. Write a blog, and publish the results on the Internet
 
 I started off in Erlang.  In my tests, I sent one message around a ring of 10,000 processes 10,000 times in 88s.[2]  That's a single message that's being passed sequentially, for a total of 100 million message passes.
+*
 
 I chose Google's Go to run a comparison in, partially because Golang and Erlang look alike on paper (jk). And because their concurrency models share common roots in Hoare's 1978 paper on "Communicating sequential processes".[3]  
 
@@ -57,6 +57,7 @@ In Go, I ran into trouble when I tried copying Erlang's switch statement loop sy
 
 via Go, for Distributed Systems [5]
 
+ddg
 Here's what my original code for the `Loop` function looked like:
 
     func (p *Process) Loop() {
