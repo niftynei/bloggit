@@ -14,7 +14,7 @@ Having the skills required to be a web engineer so concretely delineated and fee
 
 As a mobile dev of the Android variety, I'd say that the types of problems that I've spent a lot of time thinking about are application state[2], manual testing, code architecture, network availability, and view drawing code.  I enjoy thinking about the way code fits together.[3]  
 
-I've found interviewing to be a struggle because solving algorithm problems is not someting I'm good at.  I've taken a single online class on them, solved a number of exercises, watched tens of other engineers solve algorithms problems, and am generally familiar with the classes of problems that algorithms fall into.  But I haven't, personally, solved a large number of algorithms problems on my own, an experience that I think greatly improves your ability to do so when timed and under pressure.
+I've found interviewing to be a struggle because solving algorithm problems is not something I'm good at.  I've taken a single online class on them, solved a number of exercises, watched tens of other engineers solve algorithms problems, and am generally familiar with the classes of problems that algorithms fall into.  But I haven't, personally, solved a large number of algorithms problems on my own, an experience that I think greatly improves your ability to do so when timed and under pressure.
 
 In thinking through this, I found it helpful to delineate the difference between an algorithm and an architecture question, as a way to better understand what sort of work involves needing to be good at one or the other of these skills.
 
