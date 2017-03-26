@@ -51,7 +51,7 @@ This problem, unique as it is, does highlight an interesting property of network
 
 ## Send Me Your Bugs
 
-I also love hearing about bugs. I also love helping solve bugs, though I'm not great at it. If you've got a particularly juicy one that you'd like to tell me about, tweet it over to me [@basicbitchsofkw](https://www.twitter.com/basicbitchsoftw).
+I also love hearing about bugs. I also love helping solve bugs, though I'm not great at it. If you've got a particularly juicy one that you'd like to tell me about, tweet it over to me [@basicbitchsoftw](https://www.twitter.com/basicbitchsoftw).
 
 
 
