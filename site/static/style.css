@@ -112,6 +112,7 @@ div.body, div.title {
   font-size: 1.2em;
   background-color: #FAFAFA;
   padding: .5em;
+  overflow-x: scroll;
 }
 
 .body pre code::selection {
