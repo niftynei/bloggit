@@ -37,7 +37,7 @@ I'm here to tell you that it looks like a thousand tiny training programs.  I am
 We will have trained our way out of a job.[3]
 
 
-[1] [http://www.recurse.com](http://www.recurse.com)
+[1] [https://www.recurse.com](https://www.recurse.com)
 
 [2] [Luhn algorithm wikipedia page](https://en.wikipedia.org/wiki/Luhn_algorithm)
 

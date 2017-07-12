@@ -37,7 +37,7 @@ If it's the latter, perhaps we should consider out own biases towards learning[6
 
 [2] Google's blog post can be found at [https://googleblog.blogspot.com/2016/01/alphago-machine-learning-game-go.html](https://googleblog.blogspot.com/2016/01/alphago-machine-learning-game-go.html)
 
-[3] Socks From the Toe Up [http://www.amazon.com/Socks-Toe-Up-Essential-Techniques/dp/0307449440](http://www.amazon.com/Socks-Toe-Up-Essential-Techniques/dp/0307449440)
+[3] Socks From the Toe Up [https://www.amazon.com/Socks-Toe-Up-Essential-Techniques/dp/0307449440](https://www.amazon.com/Socks-Toe-Up-Essential-Techniques/dp/0307449440)
 
 [4] It is a remarkable achievement of human intelligence that we *don't* need to study 30 million moves in order to be expert players.
 

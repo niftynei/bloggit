@@ -96,7 +96,7 @@ The complete solution for these problems can be found on Github: [Go](https://gi
 
 [2] My laptop is a mid-2011 Macbook Air, with a 1.7 GHz i5 processor and 4GB of RAM.
 
-[3] T. Hoare's CSP paper: [http://spinroot.com/courses/summer/Papers/hoare_1978.pdf](http://spinroot.com/courses/summer/Papers/hoare_1978.pdf)
+[3] T. Hoare's CSP paper: [https://spinroot.com/courses/summer/Papers/hoare_1978.pdf](https://spinroot.com/courses/summer/Papers/hoare_1978.pdf)
 
 [4] This re-implementation of Hoare's paper in Golang has a decent discussion at the beginning [https://godoc.org/github.com/thomas11/csp](https://godoc.org/github.com/thomas11/csp)
 

@@ -11,7 +11,7 @@ import json
 METADATA_DELIM = '---\n'
 
 BASE_URL = "//basicbitch.software"
-BLOG_LINK = "http:" + BASE_URL
+BLOG_LINK = "https:" + BASE_URL
 RSS_LINK = BLOG_LINK + "/feed.xml"
 BLOG_TITLE = "Basic Bitch Software"
 BLOG_DESC = "software basics, for basic bitches"
