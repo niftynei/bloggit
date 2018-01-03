@@ -18,6 +18,10 @@ a {
   word-wrap: break-word;
 }
 
+img {
+  width: 55vw;
+}
+
 #entry_block {
   padding-top: 10%;
   width: 65%;
