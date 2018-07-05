@@ -1,6 +1,6 @@
-timestamp: 1530470171
-date: 1 Jul 2018
-time: 11:36
+timestamp: 1530778227
+date: 5 Jul 2018
+time: 01:10
 title: On the Nature of Bitcoin
 tags: bitcoin, monetary-systems, cryptocurrency, debt, david-graeber
 
@@ -45,15 +45,15 @@ It's tempting to delve into aspects of contracts or old style tokens that were p
 
 Rather, Bitcoin's value comes from the system that it's built upon. Bitcoin is a globally available, persistent, decentralized accounting ledger with a genuinely verifiable timestamping machine. This timestamping mechanism is an important feature and value proposition of Bitcoin as a value store -- it's what gives you the ability to order payments in time. I'd argue that it's the most important, valuable aspect of the computer system that makes Bitcoin possible.
 
-Satoshi didn't invent the time keeping machine that backs Bitcoin[4]. In fact, it was first proposed in Haber and Stornetta's 1991 paper in the _Journal of Cryptography_ "How to timestamp a digital document". In the paper, Haber+Stornetta propose two different mechansims for creating a global and perpetual timestamp verification machine. Satoshi used the first mechanism, of including the hash of a previous document in the following document, creating a chain of time verifiable documents. Bitcoin blocks are time verifiable documents. This is, to a large extent what makes them incredibly valuable. Due to their timestamped nature, and the lack of central control over this machine, they are unspoofable. The value of Bitcoin then, is in its digital timestamping value.
+Satoshi didn't invent the time keeping machine that backs Bitcoin[4]. In fact, it was first proposed in Haber and Stornetta's 1991 paper in the _Journal of Cryptography_ "How to timestamp a digital document". In the paper, Haber+Stornetta propose two different mechanisms for creating a global and perpetual timestamp verification machine. Satoshi used the first mechanism, of including the hash of a previous document in the following document, creating a chain of time verifiable documents. Bitcoin blocks are time verifiable documents. This is, to a large extent what makes them incredibly valuable. Due to their timestamped nature, and the lack of central control over this machine, they are unspoofable. The value of Bitcoin then, is in its digital timestamping value.
 
 ## A Short Digression on The Historicity of One-Way Functions
 
-I stated earlier that Bitcoin isn't a debt system, but in a lot of ways the way that value is passed from one holder to the next closely resembles early currency systems of the Ancient Middle East and the Eurporean Middle Ages. In these systems, debts were often marked in notches on a rod or tablet and then broken.  The debtor would carry one half, the owner of the debt the other. 
+I stated earlier that Bitcoin isn't a debt system, but in a lot of ways the way that value is passed from one holder to the next closely resembles early currency systems of the Ancient Middle East and the European Middle Ages. In these systems, debts were often marked in notches on a rod or tablet and then broken.  The debtor would carry one half, the owner of the debt the other. 
 
 I struggled for a while to understand how a broken rod or tablet was good as a contract, but it's quite simple and ingenious. Curiously, it functions very similarly to a cryptographic one way function. A clay tablet is easy to break into two parts. It is also easy to tell if two parts of a broken tablet belong to each other, merely by seeing if the broken edges fit back together. However, it is very difficult to break a second clay tablet in such a way as to absolutely mirror the first. This is why clay tablets were broken -- to create signatures that only the other half could fulfill.
 
-Cryptographic one-way functions work in an incredibly similar manner, except that, instead of relying on the random ordering of physical tablet particles in a break, they rely on the finding and computation of large numbers.  Cryptographers and mathmeticians have largely succeeded in copying the ease of tablet breaking and matching with the use of public and private keys. 
+Cryptographic one-way functions work in an incredibly similar manner, except that, instead of relying on the random ordering of physical tablet particles in a break, they rely on the difficulty of finding and factoring large primes.  Cryptographers and mathematicians have largely succeeded in copying the ease of tablet breaking and matching with the use of public and private keys. 
 
 The only downside to the numeric device is that you have to keep your private key a secret, whereas a tablet's contents can be public. It's a common trope of modern technology to convert a physical device into data -- in this case transforming the security from physical space to informational. Put another way, the clay tablet version of document verification was based on what you have, a matching clay tablet, the new Bitcoin mediated version of verification is based on what you know, a large number. [5]
 
