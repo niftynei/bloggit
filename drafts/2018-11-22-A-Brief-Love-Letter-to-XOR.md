@@ -35,7 +35,7 @@ A result of `1111` doesn't tell you what bits belong in which of the strings tha
     // If I know 1010 and the result, 1111, I can extract the other input   
     1010 xor 1111 = 0101  
 
-This is incredibly useful in cryptography. If you take a message and XOR it with a 'private key' (a random series of bits) as the same size as your message, viola, your message is now encrypted. If your 'private key' is a random enough series of bits, then it will be practically impossible for anyone to know what the original message bits were. To decrypt this message, all you need is the encrypted message and the key that was used to encrypt it.[2]
+This is incredibly useful in cryptography. If you take a message and XOR it with a 'secret key' (a random series of bits) as the same size as your message, viola, your message is now encrypted. If your 'secret key' is a random enough series of bits, then it will be practically impossible for anyone to know what the original message bits were. To decrypt this message, all you need is the encrypted message and the key that was used to encrypt it.[2]
 
     // How to encrypt a message   
     message xor key = encrypted_message  
