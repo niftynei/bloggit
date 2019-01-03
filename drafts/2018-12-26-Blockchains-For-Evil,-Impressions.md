@@ -6,7 +6,7 @@ tags: blockchains, conference-swag, impressionism
 
 ---
 
-tl;dr: Make takeaways from a conference I attended earlier this month, [Blockchains Against Evil](https://www.eventbrite.com/e/blockchain-against-evil-tickets-52069749021#)
+### Takeaways from a blockchain ethics conference I attended earlier this month, [Blockchains Against Evil](https://www.eventbrite.com/e/blockchain-against-evil-tickets-52069749021#)
 
 I attended a day-long conference/seminar earlier this month, that pulled together a bunch of people in the 'blockchain' space to talk about trends in the industry, especially around security and lawlessness.
 
