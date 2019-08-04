@@ -6,7 +6,7 @@ tags: git, history, bisect
 
 ---
 
-I work on [c-lightning](https://github.com/ElementsProject/lightning) and one thing that I spend a lot of time doing, as a new c-lightning contributor, is making my git commit history as perfect as possible. What is a perfect git commit history? There are two things that our team uses to judge whether a Pull Request's commits are good for committing: how bisectable it is and how readable it is. Bisectability is a concern for the machines, or keeping your commit history interoperable with a useful tool, `git bisect`. Readability has to do with documentation, keeping your commit history interoperable with other humans that are mainataining the codebase.
+I work on [c-lightning](https://github.com/ElementsProject/lightning) and one thing that I spend a lot of time doing, as a new c-lightning contributor, is making my git commit history as perfect as possible. What is a perfect git commit history? There are two things that our team uses to judge whether a Pull Request's commits are good for committing: how bisectable it is and how readable it is. Bisectability is a concern for the machines, or keeping your commit history interoperable with a useful tool, `git bisect`. Readability has to do with documentation, keeping your commit history interoperable with other humans that are maintaining the codebase.
 
 ## Bisect
 
@@ -18,16 +18,16 @@ To start a git bisect session, you run `git bisect start`. Next, it expects you 
 
     $ git bisect bad
 
-Assuming you know at least one commit that was good, you then tell git bisect what the 'good' commit is. As an example, heres how you'd mark a commit hash good.
+Assuming you know at least one commit that was good, you then tell git bisect what the 'good' commit is. As an example, here's how you'd mark a commit hash good.
 
     $ git biset good 9a7b7a8e
 
 
 From there, `git bisect` will binary search through the commits between the known good and known bad points until you've identified the commit where the error takes place. It automatically checks out commits, and then you run your tests. If the test fails, you mark the commit is bad (with `git bisect bad`); if the test passes, you mark it as good (`git bisect good`). When you're finished, return to head with `git bisect reset`. 
 
-Since `git bisect` picks 'random' (actually they're halfway between the last marked good + bad), if any commit in your project doesn't build and you land on it with `git bisect`, you're not going to be able to figure out if it's actually a good or a bad commit. Same for breaking tests as well.
+Since `git bisect` picks 'random' (actually they're halfway between the last marked good + bad) commits, if any commit in your project doesn't build and you land on it with `git bisect`, you're not going to be able to figure out if it's actually a good or a bad commit. Same for breaking tests as well.
 
-To summarize: non-buildable commits break your abilty to 'easily' git bisect through a codebase, build it at any given commit
+To summarize: non-buildable commits break your abilty to 'easily' git bisect through a codebase, and build at any given commit.
 
 ## Readability
 
@@ -51,9 +51,9 @@ I find myself using 'edit' more than I probably should. I like how fine-grained 
 If you accidentally stage a 'hunk', you can similarly unstage hunks with the same tool using `git reset HEAD -p`.
 
 ###  git rebase -i
-Once you've made your commits, you can reorder them, merge commits together, or execute a commands against them using `git rebase`. I use this all the time to add more things to other commits with fixup, to re-arrange the order that commits come in, or to re-write a commit message.  A word of caution about re-ordering commits: this is a really great way to end up with conflicts if you're not careful.
+Once you've made your commits, you can reorder them, merge commits together, or execute a commands against them using `git rebase`. I use this all the time to add more things to other commits with fixup, to re-arrange the order that commits come in, or to re-write a commit message.  A word of caution about re-ordering commits: this is a really great way to end up with conflicts if you're not careful. If you end up with a mess in the middle of a rebase, you can always abort with `git rebase --abort`.
 
-Typically when I start on a thing, I'll have 20+ commits that will get whittled down to 2/3rds or half of that number.
+Typically when I start on a thing, I'll have 20+ commits that will get whittled down to 2/3rds or half of that number for the PR.
 
 I've never done this, but you can confirm that `git bisect` works by running `git rebase -i` with the -exec flag. Kamal[1] has a great blog post on how this works [here](http://kamalmarhubi.com/blog/2016/03/08/git-rebase-exec-make-sure-your-tests-pass-at-each-commit-and-other-rebase-goodies/). Typically what you'd exec is the build and check make commands, and also your linter. For c-lightning this would probably be something along the lines of `make check check-source`.
 
