@@ -109,6 +109,7 @@ div.body, div.title {
 .body p code {
   background-color: #FAFAFA;
   padding: 4px;
+  overflow-wrap: break-word;
 }
 
 .body pre {
@@ -116,6 +117,7 @@ div.body, div.title {
   font-size: 1.2em;
   background-color: #FAFAFA;
   padding: .5em;
+  overflow-wrap: break-word;
   overflow-x: scroll;
 }
 
