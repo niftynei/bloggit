@@ -21,7 +21,8 @@ DRAFTS = "drafts"
 POSTS = "site/posts"
 PAGES = "site/pages"
 HOME  = "site/index.html"
-RSS_FEED = "site/feed"
+RSS_FEED = "site/feed.xml"
+RSS_FEED_LEGACY = "site/feed"
 RSS_FEED_SIZE = 20
 TMP_OUTPUT = "tmp"
 PAGE_SIZE = 8
@@ -167,6 +168,9 @@ with open ('templates/rss.mustache', 'r') as mofile:
   rendered_page = pystache.render(rss_template, rss_dict)
 with open(RSS_FEED, 'w+') as out:
   print(rendered_page, file=out)
+with open(RSS_FEED_LEGACY, 'w+') as out:
+  print(rendered_page, file=out)
+
 
 try:
   shutil.rmtree(TMP_OUTPUT)
