@@ -30,7 +30,7 @@ PAGE_SIZE = 8
 def chunk(entries, chunk_size):
   out = []
   last = 0
-  
+
   while last < len(entries):
     out.append(entries[last:(last + chunk_size)])
     last += chunk_size
@@ -39,7 +39,7 @@ def chunk(entries, chunk_size):
 
 def formatDate(timestamp):
   return utils.formatdate(int(timestamp), localtime=True)
-  
+
 
 if not os.path.exists(TMP_OUTPUT):
   os.makedirs(TMP_OUTPUT)
@@ -48,7 +48,7 @@ drafts = [ f for f in os.listdir(DRAFTS) if f.endswith(".md")]
 
 entry_set = [] # list of draft dicts
 
-# read in template for entry 
+# read in template for entry
 with open ('templates/entry.mustache', 'r') as mofile:
   entry_template = mofile.read()
 
@@ -73,7 +73,7 @@ for draft in drafts:
     for tag in split_tags:
       if (len(tag) == 0):
         continue
-      tags_list.append({ 'tag': tag}) 
+      tags_list.append({ 'tag': tag})
     meta_dict['tags'] = tags_list
 
   if 'timestamp'not in meta_dict:
@@ -109,7 +109,7 @@ sorted_entries = sorted(entry_set, key=lambda k: k['timestamp'], reverse=True)
 with open ('templates/post.mustache', 'r') as mofile:
   post_template = mofile.read()
 for index, entry in enumerate(sorted_entries):
-  
+
   if index != 0: # if not the first item, add a prev link
     entry['prev'] = sorted_entries[index - 1]['filename']
 
@@ -131,14 +131,14 @@ paged_entries = chunk(sorted_entries, PAGE_SIZE)
 with open ('templates/page.mustache', 'r') as mofile:
   page_template = mofile.read()
 for index, page in enumerate(paged_entries):
-  
+
   # add a 'last' marker to the last entry in a page, so that we don't print a comma
   page[len(page) - 1]['last'] = True
 
   page_dict = { 'entries': page }
   # add a "more" link if there's a page after this one
   if (index + 1 < len(paged_entries)):
-    page_dict['more_link'] = 'pages/page_' + str(index + 1) + '.json' 
+    page_dict['more_link'] = 'pages/page_' + str(index + 1) + '.json'
 
   if (index == 0):
     # read in template for home page
@@ -151,13 +151,13 @@ for index, page in enumerate(paged_entries):
   rendered_page = pystache.render(page_template, page_dict)
   with open(PAGES + '/page_' + str(index) + '.json', 'w+') as out:
     print(rendered_page, file=out)
-  
 
-# RSS feed page 
+
+# RSS feed page
 rss_dict = {}
 rss_dict['posts'] = sorted_entries[:RSS_FEED_SIZE]
 rss_dict['blogtitle'] = BLOG_TITLE
-rss_dict['bloglink'] = BLOG_LINK 
+rss_dict['bloglink'] = BLOG_LINK
 rss_dict['description'] = BLOG_DESC
 rss_dict['copyright'] = COPYRIGHT
 rss_dict['rssLink'] = RSS_LINK
