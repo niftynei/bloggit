@@ -18,12 +18,11 @@ BLOG_DESC = "software basics, for basic bitches"
 COPYRIGHT = "(&#x254;) Lisa Neigut " + str(datetime.now().year)
 CONTACT_EMAIL = "lisa.neigut@gmail.com (Lisa Neigut)"
 DRAFTS = "drafts"
-POSTS = "site/posts"
-PAGES = "site/pages"
+POSTS = "posts"
 HOME  = "site/index.html"
 RSS_FEED = "site/feed.xml"
 RSS_FEED_LEGACY = "site/feed"
-RSS_FEED_SIZE = 20
+RSS_FEED_SIZE = 50
 TMP_OUTPUT = "tmp"
 PAGE_SIZE = 8
 
@@ -122,36 +121,16 @@ for index, entry in enumerate(sorted_entries):
   entry['escaped_entry'] = json.dumps(rendered_entry)
 
   post = pystache.render(post_template, entry)
-  with open(POSTS + '/' + entry['filename'], 'w+') as out:
+  with open('site/' + POSTS + '/' + entry['filename'], 'w+') as out:
     print(post, file=out)
 
-paged_entries = chunk(sorted_entries, PAGE_SIZE)
-
-# read in template for pages (for home page pagination)
-with open ('templates/page.mustache', 'r') as mofile:
-  page_template = mofile.read()
-for index, page in enumerate(paged_entries):
-
-  # add a 'last' marker to the last entry in a page, so that we don't print a comma
-  page[len(page) - 1]['last'] = True
-
-  page_dict = { 'entries': page }
-  # add a "more" link if there's a page after this one
-  if (index + 1 < len(paged_entries)):
-    page_dict['more_link'] = 'pages/page_' + str(index + 1) + '.json'
-
-  if (index == 0):
-    # read in template for home page
-    with open ('templates/home.mustache', 'r') as mofile:
-      home_template = mofile.read()
-    rendered_home = pystache.render(home_template, page_dict)
-    with open(HOME, 'w+') as out:
-      print(rendered_home, file=out)
-
-  rendered_page = pystache.render(page_template, page_dict)
-  with open(PAGES + '/page_' + str(index) + '.json', 'w+') as out:
-    print(rendered_page, file=out)
-
+# we just print the list of articles to the blog
+with open ('templates/home.mustache', 'r') as mofile:
+  home_template = mofile.read()
+  home_dict = { 'entries': sorted_entries }
+  rendered_home = pystache.render(home_template, home_dict)
+  with open(HOME, 'w+') as out:
+    print(rendered_home, file=out)
 
 # RSS feed page
 rss_dict = {}
