@@ -121,6 +121,8 @@ for index, entry in enumerate(sorted_entries):
   entry['escaped_entry'] = json.dumps(rendered_entry)
 
   post = pystache.render(post_template, entry)
+  # Check that POSTS directory exists first
+  os.makedirs('site/' + POSTS, exist_ok = True)
   with open('site/' + POSTS + '/' + entry['filename'], 'w+') as out:
     print(post, file=out)
 
