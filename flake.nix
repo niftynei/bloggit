@@ -14,6 +14,7 @@
           pkgs.python3
           (pkgs.poetry.override { python3 = pkgs.python3; })
           pkgs.bashInteractive
+	  pkgs.git
         ];
 	shellHook = ''
 		poetry env activate && poetry install
