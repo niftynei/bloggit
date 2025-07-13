@@ -80,7 +80,7 @@ for draft in drafts:
     continue
 
   if 'time' in meta_dict:
-    print("The time is " + meta_dict['time'])
+      print("The time is " + meta_dict['time'] + " (title: "+ meta_dict['title'] + ")")
 
   meta_dict['filename'] = draft.replace('md','html')
   meta_dict['link'] = POSTS + '/' + meta_dict['filename']
