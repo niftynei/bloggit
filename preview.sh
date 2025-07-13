@@ -1,5 +1,5 @@
-python3 script.py
+poetry run python script.py
 
 if [ $? -eq 0 ]; then 
-  cd site; python3 -m http.server 8080; cd -
+  cd site; poetry run python -m http.server 8080; cd -
 fi
