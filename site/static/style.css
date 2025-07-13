@@ -192,6 +192,7 @@ div.body, div.title {
 
 #content {
   margin: auto;
+  margin-bottom: 20rem;
   max-width: 966px;
   height: 100%;
   position: relative;
