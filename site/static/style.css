@@ -1,5 +1,6 @@
 body {
   font-family: Courier, "Courier New", monospace;
+  margin: 0;
 }
 
 ::selection {
@@ -192,9 +193,8 @@ div.body, div.title {
 
 #content {
   margin: auto;
-  margin-bottom: 20rem;
+  margin-bottom: 16rem;
   max-width: 966px;
-  height: 100%;
   position: relative;
 } 
 
@@ -202,7 +202,8 @@ div.body, div.title {
   .list {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 6%;
+    right: 80;
   }
   .list ul {
     display: inline; 
